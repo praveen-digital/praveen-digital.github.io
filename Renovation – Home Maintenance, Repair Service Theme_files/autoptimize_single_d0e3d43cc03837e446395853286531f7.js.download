@@ -1,0 +1,4 @@
+'use strict';jQuery(document).ready(function($){var offset='';if($('header.header-landing-page').length>0){offset=$('header.header-landing-page').offset().top;}
+var has_wpadminbar=$('#wpadminbar').length;var height=$('header.header-landing-page').height();var wpadminbar=0;if(has_wpadminbar>0){wpadminbar=$('#wpadminbar').height();$('header.header-landing-page').addClass('has-wpadminbar');}
+if($(window).scrollTop()>offset-wpadminbar){$('header.header-landing-page').addClass('is-sticky');}
+$(window).scroll(function(){if($(window).scrollTop()>offset-wpadminbar){$('header.header-landing-page').addClass('is-sticky');}else{$('header.header-landing-page').removeClass('is-sticky');}});$('header.header-landing-page .menu-item a[href^=\'#\']').on('click',function(e){e.preventDefault();var hash=this.hash,headerHeight=$('header.header-landing-page').height();$('html, body').animate({scrollTop:$(hash).offset().top-headerHeight-30},1000);});});
