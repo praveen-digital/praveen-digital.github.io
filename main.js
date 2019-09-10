@@ -236,7 +236,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<input type=\"text\" #task (keypress)=\"0\">\n<button (click)=\"addTask(task.value)\">Add Task</button>\n<ul>\n  <li *ngFor=\"let task of taskList\">\n      {{task}}\n      <button>Done</button>\n      <button>Delete</button>\n  </li>\n</ul>"
+module.exports = "<input type=\"text\" #task (keypress)=\"0\">\n<button (click)=\"addTask(task.value)\">Add Task</button>\n<ul>\n  <li *ngFor=\"let task of taskList;let i = index\">\n      {{task}}\n      <button>Done</button>\n      <button (click)=\"del(i)\">Delete</button>\n  </li>\n</ul>"
 
 /***/ }),
 
@@ -260,6 +260,9 @@ var MainareaComponent = /** @class */ (function () {
     }
     MainareaComponent.prototype.addTask = function (t) {
         this.taskList.push(t);
+    };
+    MainareaComponent.prototype.del = function (i) {
+        this.taskList.splice(i, 1);
     };
     MainareaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
